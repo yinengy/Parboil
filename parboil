@@ -9,9 +9,11 @@ def checkout_dataset():
   if not os.path.exists("datasets"):
     import urllib
     print "Datasets are being downloaded and installed. It will take a few minutes."
-    url = "https://bitbucket.org/hwuligans/public/downloads/datasets.tar.bz2"
-    datafile = "datasets.tar.bz2"
-    urllib.urlretrieve (url, datafile)
+    # url = "https://bitbucket.org/hwuligans/public/downloads/datasets.tar.bz2"
+    # datafile = "datasets.tar.bz2"
+    datafile = "pb2.5datasets_standard.tgz"
+    # urllib.urlretrieve (url, datafile)
+
 
     import os
     import tarfile

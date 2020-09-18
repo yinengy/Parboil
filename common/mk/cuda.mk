@@ -1,5 +1,9 @@
 # (c) 2007 The Board of Trustees of the University of Illinois.
 
+# record and replay
+record=LD_PRELOAD=/home/yinengy/CUDA-Record-and-Replay/tools/record/record.so
+replay=LD_PRELOAD=/home/yinengy/CUDA-Record-and-Replay/tools/replay/replay.so
+
 # Default language wide options
 
 # CUDA specific
@@ -88,8 +92,7 @@ default: $(FAILSAFE) $(BUILDDIR) $(BIN)
 
 run:
 	@echo "Resolving CUDA runtime library..."
-	@$(shell echo $(RUNTIME_ENV)) LD_LIBRARY_PATH=$(CUDA_LIB_PATH) ldd $(BIN) | grep cuda
-	@$(shell echo $(RUNTIME_ENV)) LD_LIBRARY_PATH=$(CUDA_LIB_PATH) $(BIN) $(ARGS)
+	@$(replay) $(BIN) $(ARGS)
 
 debug:
 	@echo "Resolving CUDA runtime library..."
